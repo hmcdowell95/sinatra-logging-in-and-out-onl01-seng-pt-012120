@@ -25,8 +25,9 @@ class ApplicationController < Sinatra::Base
     @user = User.find(session[:user_id])
     if @user.id == session[:user_id]
     erb :account
+    else
+      erb :error
     end
-    erb :error
   end
 
   get '/logout' do
